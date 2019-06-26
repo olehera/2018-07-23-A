@@ -102,6 +102,7 @@ public class NewUfoSightingsDAO {
 		String sql = "SELECT state1, state2, COUNT(*) AS peso " + 
 				     "FROM sighting AS s1, sighting AS s2, neighbor " + 
 				     "WHERE s1.shape = ? AND YEAR(s1.datetime) = ? AND s1.state = neighbor.state1 AND s2.state = neighbor.state2 " + 
+				     "AND s1.shape = s2.shape AND YEAR(s1.DATETIME) = YEAR(s2.DATETIME) " +
 				     "GROUP BY state1, state2 ";
 		
 		List<Confinanti> result = new ArrayList<Confinanti>();
